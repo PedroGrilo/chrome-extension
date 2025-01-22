@@ -1,17 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
-// Conectar ao MongoDB
-mongoose.connect('mongodb+srv://link:58I4KgkeK7yDM26V@cluster0.ptb8p.mongodb.net/newsDB', {
+// Connect to MongoDB using environment variable
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/newsDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
 // Monitor MongoDB connection status
 mongoose.connection.on('connected', () => {
-  console.log('Connected to MongoDB Atlas');
+  console.log('Connected to MongoDB');
 });
 
 mongoose.connection.on('error', (err) => {
@@ -19,7 +20,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 mongoose.connection.on('disconnected', () => {
-  console.log('Disconnected from MongoDB Atlas');
+  console.log('Disconnected from MongoDB');
 });
 
 // Schema para as notícias

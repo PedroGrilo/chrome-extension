@@ -1,9 +1,18 @@
 # News Saver Chrome Extension 📰
 
-A powerful Chrome extension that helps you save and manage news articles from various news websites. Currently supports:
+A powerful Chrome extension that helps you save and manage news articles from various news websites. This project was developed in a professional work environment as an experimental approach to AI-assisted development. Currently supports:
 - NYTimes
 - CNN
 - CMJornal
+
+## 🤖 AI Disclaimer
+
+This project was developed with approximately 95% AI assistance as part of a workplace experiment, exploring the potential of AI-powered development tools in a professional setting. The development stack included:
+- **Claude (Anthropic)**: Main development, code generation, and problem-solving through Cursor IDE
+- **Cursor IDE**: AI-powered development environment for intelligent code completion and suggestions
+- **Human Input**: Project direction, requirements, and final validation (5%)
+
+The development process was a collaborative effort between human guidance and AI capabilities, demonstrating the potential of AI-assisted development in a professional setting while maintaining human oversight for quality and functionality. This experiment showcases how AI tools can be effectively integrated into workplace development workflows.
 
 ## ✨ Features
 
@@ -41,15 +50,24 @@ cd server
 npm install
 ```
 
-3. Create a `.env` file with your MongoDB connection string:
+3. Create a `.env` file in the server directory with your MongoDB connection string:
 ```bash
+# .env file
 MONGODB_URI=your_mongodb_connection_string
+
+# Example for local MongoDB:
+# MONGODB_URI=mongodb://localhost:27017/newsDB
+
+# Example for MongoDB Atlas:
+# MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/newsDB
 ```
 
 4. Start the server:
 ```bash
 npm start
 ```
+
+Note: If no MONGODB_URI is provided in the .env file, the server will attempt to connect to a local MongoDB instance at mongodb://localhost:27017/newsDB
 
 ## 💡 Usage
 
