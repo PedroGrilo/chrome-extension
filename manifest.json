@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Ext - Link - Out of a job",
+  "version": "1.0",
+  "description": "A simple Chrome extension",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["base-content.js"]
+    },
+    {
+      "matches": [
+        "*://*.nytimes.com/*",
+        "https://www.nytimes.com/*",
+        "*://*.cnn.com/*",
+        "*://*.cmjornal.pt/*"
+      ],
+      "js": ["news-content.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "notifications",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [{
+    "resources": ["icon.png"],
+    "matches": ["<all_urls>"]
+  }]
+} 
